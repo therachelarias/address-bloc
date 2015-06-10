@@ -86,7 +86,7 @@ class MenuController
     @address_book.entries.each_with_index {|u, i| puts "#{i + 1} #{u.name}"}
     # get a number from user input
     # validate that it's a number
-    # grab entry for that number
+    # grab entry for that number by indexing the entries array
     input = gets.chomp.to_i
     puts @address_book.entries[input - 1].to_s
     main_menu
