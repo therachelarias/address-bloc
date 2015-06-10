@@ -8,15 +8,14 @@ class MenuController
   end
 
   def main_menu
-
     puts "Main Menu - #{@address_book.entries.count} entries"
     puts "1 - View all entries"
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - View Entry Number n"
+    puts "6 - Exit"
     print "Enter your selection: "
-
   selection = gets.to_i
     case selection
     when 1
@@ -36,6 +35,10 @@ class MenuController
       read_csv
       main_menu
     when 5
+      system "clear"
+      entry_number
+      main_menu
+    when 6
       puts "Good-bye!"
       exit(0)
     else
@@ -51,7 +54,6 @@ class MenuController
       puts entry.to_s
         entry_submenu(entry)
       end
-
       system "clear"
       puts "End of entries"
   end
@@ -77,6 +79,20 @@ class MenuController
   end
 
   def read_csv
+  end
+
+  def entry_number
+    # print list of users (very rudimentary)
+    @address_book.entries.each_with_index {|u, i| puts "#{i + 1} #{u.name}"}
+    # get a number from user input
+  selection = gets.to_i
+    # validate that it's a number
+    # grab entry for that number
+    case selection
+      when 
+        gets = 
+      main_menu
+    end
   end
 
   def entry_submenu(entry)
