@@ -147,8 +147,11 @@ end
     print "Are you sure you'd like to delete all entries in AddressBook?: (y/n)"
     selection = gets.chomp
     if "y"
-      @address_book.entries.each {|entry| delete_entry(entry)}
-    elsif "n"
+    while @address_book.entries.count > 0
+      delete_entry(@address_book.entries[0])
+    end
+    puts "AddressBook has been deleted"
+    else
       main_menu
     end
   end
